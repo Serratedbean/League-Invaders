@@ -6,7 +6,7 @@ import java.awt.Graphics;
 
 import javax.swing.*;
 
-public class GamePanel extends JPanel 
+public class GamePanel extends JPanel implements ActionListener
 {
 
 	final int MENU = 0;
@@ -15,6 +15,14 @@ public class GamePanel extends JPanel
 	
     int currentState = MENU;
 	
+    Timer frameDraw;
+    
+    Font  titleFont = new Font("Arial", Font.PLAIN, 48);
+    Font  fontDefault = new Font("Arial", Font.PLAIN, 24);
+    
+    
+    
+    
     public void updateMenuState() 
     {  
     	
@@ -53,6 +61,13 @@ public class GamePanel extends JPanel
 	{  
 		g.setColor(Color.BLUE);
 		g.fillRect(0, 0, LeagueInvaders.WIDTH, LeagueInvaders.HEIGHT);
+		
+		g.setFont(titleFont);
+		g.setColor(Color.YELLOW);
+		g.drawString("LEAGUE INVADERS", 25, 100);
+		g.setFont(fontDefault);
+		g.drawString("Press ENTER to start", 150, 400);
+		g.drawString("Press SPACE for instructions", 100, 600);
 	}
 	public void  drawGameState(Graphics g) 
 	{  
@@ -64,6 +79,7 @@ public class GamePanel extends JPanel
 	{  
 		g.setColor(Color.RED);
 		g.fillRect(0, 0, LeagueInvaders.WIDTH, LeagueInvaders.HEIGHT);
+		
 	}
 	
 
